@@ -22,7 +22,7 @@ REST-Rant is an app where users can review restaurants.
 places
 | Field | Type |
 | ----- | ---- |
-| _id   | ---- |
+| _id   | Object ID |
 | name  | String |
 | city  | String |
 | state | String |
