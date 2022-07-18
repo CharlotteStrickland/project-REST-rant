@@ -19,7 +19,7 @@ REST-Rant is an app where users can review restaurants.
 
 ## Database
 ***
-places
+**places**
 | Field | Type |
 | ----- | ---- |
 | _id   | Object ID |
