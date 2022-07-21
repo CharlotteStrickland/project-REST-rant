@@ -1,5 +1,12 @@
 const router = require('express').Router()
 
+router.get('/', (req, res) => {
+  db.Place.find()
+  .then((places) => {
+    res.render('places/index', {places})
+  }) 
+})
+
 // GET /places
 app.get('/', (req, res) => {
   let places = [{
