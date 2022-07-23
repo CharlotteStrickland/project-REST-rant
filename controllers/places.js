@@ -3,9 +3,9 @@ const places = require('../models/places.js')
 
 router.get('/', (req, res) => {
   db.Place.find()
-  .then((places) => {
-    res.render('places/index', {places})
-  }) 
+    .then((places) => {
+      res.render('places/index', { places })
+    })
 })
 
 router.get('/:id', (req, res) => {
@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     res.render('error404')
   }
   else {
-    res.render('places/show', { place: places[id], id})
+    res.render('places/show', { place: places[id], id })
   }
 })
 
@@ -50,11 +50,24 @@ router.delete('/:id', (req, res) => {
   }
 })
 
+router.get('/:id/edit', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', { place: places[id], id })
+  }
+})
+
 
 // GET /places
 app.get('/', (req, res) => {
   let places = [{
-    name:'H-Thai-ML',
+    name: 'H-Thai-ML',
     city: 'Seattle',
     state: 'WA',
     cuisines: 'Thai, Pan-Asian',
@@ -66,9 +79,9 @@ app.get('/', (req, res) => {
     cuisines: 'Coffee, Bakery',
     pic: '/images/coffee-cat.jpg'
   }]
-    res.render('places/index', {places})
-  })
+  res.render('places/index', { places })
+})
 
-  
- 
+
+
 module.exports = router
